@@ -2,7 +2,14 @@ body {
     overflow-y: hidden;
     background-color: #343a40;
 }
-
+::-webkit-scrollbar {
+    width: 4px;  
+    background: transparent;  
+}
+::-webkit-scrollbar-thumb {
+    background: #7f8c8d;
+    border-radius: 20px;
+}
 #value {
     word-wrap: break-word;      /* IE 5.5-7 */
     white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
@@ -57,6 +64,12 @@ p {
 .align-bottom {
     position: absolute;
     bottom: 10px;
+    width: inherit;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.absolute {
+    position: absolute;
     width: inherit;
     left: 50%;
     transform: translate(-50%, 0);
