@@ -1,0 +1,68 @@
+body {
+    overflow-y: hidden;
+    background-color: #343a40;
+}
+
+#value {
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
+}
+
+#result {
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
+}
+
+.bg-ice {
+    background-color: #c7ecee;
+}
+.bg-black {
+    background-color: black;
+}
+.bg-smooth {
+    background-color: #f7f7f7;
+}
+p {
+    margin: 0px;
+}
+.h-screen {
+    overflow: hidden;
+}
+.bg-orange {
+    background-color: #e67e22;
+}   
+.text-orange {
+    color: #e67e22;
+}   
+.w-auto {
+    width: 420px !important;
+}
+.rounded-xl {
+    border-radius: 20px;
+}
+.bordered {
+    border: 3px solid #000000;
+}
+.rounded-full {
+    border-radius: 50%;
+}
+.num {
+    cursor: pointer !important;
+}
+.operation {
+    cursor: pointer !important;
+}
+.align-bottom {
+    position: absolute;
+    bottom: 10px;
+    width: inherit;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+@media only screen and (max-width: 800px) {
+    .w-auto {
+        width: 100% !important;
+    }
+}

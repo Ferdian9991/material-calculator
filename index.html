@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="pb-3 bg-smooth h-screen w-auto d-block ml-auto mr-auto">
+        <div id="clear-scr">
+            <button class="clear btn btn-secondary mt-2 mb-2 ml-2 px-5" style="font-size: 20px; z-index: 10;">C</button>
+        </div>
+        <div class="container rounded-xl position-relative panel-screen" style="overflow-y: auto; overflow-x: hidden;">
+            <div class="px-4 py-3 align-bottom">
+                <p id="value" class="text-right text-dark" style="font-size: 50px; line-height: 55px;"></p>
+                <p id="result" class="text-right text-muted mt-3" style="font-size: 35px; line-height: 35px;">= </p>
+            </div>
+        </div>
+        <div class="align-bottom input" style="border-top: 3px solid #d1d1d1;">
+            <div class="container-fluid">
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">1</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">4</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">7</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">2</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">5</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">8</p>
+                            </div>
+                        </div>
+
+                        <div class="py-2 operation">
+                            <div class="w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center text-orange h2 mt-2" data-value="/"><i
+                                        class="fa-solid fa-divide"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">3</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">6</p>
+                            </div>
+                        </div>
+                        <div class="num py-2">
+                            <div class="bg-smooth w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center h2 mt-2">9</p>
+                            </div>
+                        </div>
+                        <div class="py-2 operation">
+                            <div class="w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center text-orange h2 mt-2" data-value="*"><i class="fas fa-times"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="py-2 operation">
+                            <div class="bg-info w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center text-light h2 mt-2" data-value="del"><i
+                                        class="fa-solid fa-delete-left"></i></p>
+                            </div>
+                        </div>
+                        <div class="py-2 operation">
+                            <div class="bg-orange w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center text-light h2 mt-2" data-value="+"><i
+                                        class="fa-solid fa-plus"></i></p>
+                            </div>
+                        </div>
+                        <div class="py-2 operation">
+                            <div class="bg-danger w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center text-light h2 mt-2" data-value="-"><i
+                                        class="fa-solid fa-minus"></i></p>
+                            </div>
+                        </div>
+                        <div class="py-2 operation">
+                            <div class="bg-secondary w-100  rounded-xl py-2 d-block mr-auto ml-auto">
+                                <p class="text-center text-light h2 mt-2" data-value="result"><i
+                                        class="fa-solid fa-equals"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+    <script src="./js/calc.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
