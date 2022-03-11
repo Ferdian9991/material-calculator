@@ -1,5 +1,7 @@
 "use strict";
 
+const numberFormatter = new Intl.NumberFormat('id-ID');
+
 const resizeWindow = () => {
     const resultPanel = $(window).height() - $(".input").height() - $("#clear-scr").height();
 
@@ -17,10 +19,6 @@ const ops = ['+', '-', '*', '/', '=', '×', '<', '>', '<=', '>=', '&', '|', '^',
 const regexp = new RegExp(
     ops.map(function (op) { return '\\' + op; }).join('|'));
 
-const duplicateRegex = new RegExp(
-    ['××', '÷÷', '×÷', '÷×'].map(function (reg) { return '\\' + reg; }).join('|'));
-
-let duplicate = [];
 let dispatchOperation = '';
 
 const resultFlip = (condition) => {
@@ -51,18 +49,14 @@ const resultFlip = (condition) => {
 const autoMath = (e) => {
     const getValue = $(e).find('p').text();
     resultFlip(false);
+    const mathString = $("#value").text().replace(/×/g, '*');
     if ($("#value").text()) {
         $("#result").show();
         if (regexp.test(dispatchOperation)) {
             try {
-                $("#result").text("= " + eval(`${$("#value").text().replace(/×/g, '*').replace(/÷/g, '/')}`));
+                const result = eval(mathString);
+                $("#result").text("= " + result);
             } catch (e) {
-                const defaultValue = $("#value").text()
-                    .replace("×", '')
-                    .replace('÷', '')
-                    .replace('+', '')
-                    .replace('-', '');
-                $("#result").text(defaultValue);
                 return true;
             }
         } else {
@@ -78,7 +72,6 @@ $(".num").on('click', function () {
     const getValue = $(this).find('p').text();
     $("#value").append(getValue);
     autoMath(this);
-    duplicate = [];
 })
 
 $(".clear").on('click', function () {
@@ -90,27 +83,13 @@ $(".operation").on('click', function () {
     resultFlip(false);
     const getOperation = $(this).find('p').data('value');
     const oldValue = $("#value").text();
+    const lastChar = $("#value").text().substr(oldValue.length - 1);
+    const operationSymbol = ['+', '-', '/', '×']
+        .includes(lastChar);
     switch (getOperation) {
-        case '/':
-            duplicate.push("÷");
-            const duplicateDivision = duplicateRegex.test(duplicate.join(""));
-            if (!duplicateDivision) {
-                $("#value").append("÷");
-            }
-            dispatchOperation = getOperation;
-            break;
-        case '*':
-            duplicate.push("×");
-            const duplicateMultiplication = duplicateRegex.test(duplicate.join(""));
-            if (!duplicateMultiplication) {
-                $("#value").append("×");
-            }
-            dispatchOperation = getOperation;
-            break;
         case 'del':
             $("#value").text(oldValue.slice(0, -1));
             autoMath();
-            duplicate = [];
             break;
         case 'result':
             try {
@@ -120,10 +99,10 @@ $(".operation").on('click', function () {
             }
             break;
         default:
-            duplicate.push("÷");
-            const duplicateDefault = duplicateRegex.test(duplicate.join(""));
-            if (!duplicateDefault) {
+            if (!operationSymbol) {
                 $("#value").append(getOperation);
+            } else if (!lastChar.includes(getOperation)) {
+                $("#value").text(oldValue.slice(0, -1) + getOperation);
             }
             dispatchOperation = getOperation;
     }
